@@ -98,7 +98,7 @@ function inum(x){x=parseInt(x);return isNaN(x)?null:x;}
 function v(id){return document.getElementById(id).value;}
 function g(id){return document.getElementById(id);}
 fetch(API+"/api/imoveis").then(function(r){return r.json();}).then(function(d){DATA=d.map(function(x){return {
- fonte:x.fonte,src:x.fonte==="Nexus"?"nx":"ru",tipo:x.tipo,bairro:x.bairro,cidade:x.cidade||"Curitiba",ref:x.ref,precoTxt:x.preco_txt||("R$ "+(x.preco||0).toLocaleString("pt-BR")),preco:x.preco||0,
+ fonte:x.fonte,src:x.fonte==="Nexus"?"nx":"ru",tipo:x.tipo,bairro:x.bairro,cidade:x.cidade||"Curitiba",ref:x.ref,precoTxt:(x.preco?(x.preco_txt||("R$ "+x.preco.toLocaleString("pt-BR"))):"Sob consulta"),preco:x.preco||0,
  q:x.quartos,vg:x.vagas,ar:x.area,img:x.img,fotos:(function(){try{return x.fotos?JSON.parse(x.fotos):[];}catch(e){return [];}})(),descricao:x.descricao||null,propria:!!x.propria};});
  fill("f-tipo",DATA.map(function(d){return d.tipo;}));fill("f-bairro",DATA.map(function(d){return d.bairro;}));render();}).catch(function(){g("count").textContent="Não foi possível carregar os imóveis agora.";});
 function fill(id,vals){var s=g(id);Array.from(new Set(vals)).filter(Boolean).sort().forEach(function(v){var o=document.createElement("option");o.textContent=v;s.appendChild(o);});}
