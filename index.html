@@ -129,7 +129,7 @@ function openFicha(d){FOTOS=(d.fotos&&d.fotos.length)?d.fotos.slice():(d.img?[d.
  g("fdisp").innerHTML="🔒 Negociação e visita conduzidas pela Tuesta & Galvão.";
  g("ficha").classList.add("open");g("ficha").scrollTop=0;document.body.style.overflow="hidden";
  if(!d.propria){ // Nexus: busca a galeria completa sob demanda
-  fetch(API+"/ficha?fonte="+encodeURIComponent(d.fonte)+"&ref="+encodeURIComponent(d.ref)).then(function(r){return r.json();}).then(function(f){
+  fetch(API+"/ficha?fonte="+encodeURIComponent(d.fonte)+"&ref="+encodeURIComponent(d.ref)+"&t="+Date.now(),{cache:"no-store"}).then(function(r){return r.json();}).then(function(f){
    if(f&&f.fotos&&f.fotos.length>FOTOS.length){FOTOS=f.fotos;drawMosaic();}
    if(f&&f.descricao&&!d.descricao){g("fdescwrap").style.display="block";g("fdesc").textContent=f.descricao;}
   }).catch(function(){});
