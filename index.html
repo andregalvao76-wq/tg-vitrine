@@ -17,17 +17,39 @@ select,input{padding:8px 10px;border:1px solid var(--line);border-radius:7px;fon
 .ph{position:relative;aspect-ratio:4/3;background:#e9edf0 center/cover no-repeat}.ph.pl{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;background:linear-gradient(135deg,#2a3a46,#16222b);color:#cdd7dd;text-align:center;padding:12px}.ph.pl b{color:#fff}
 .src{position:absolute;top:10px;right:10px;color:#fff;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;text-transform:uppercase}.src.ru{background:var(--ru)}.src.nx{background:var(--nx)}
 .cb{padding:13px 14px;display:flex;flex-direction:column;gap:4px}.cb .preco{font-weight:700;font-size:1.2rem;color:var(--navy)}.cb .tipo{font-size:.72rem;text-transform:uppercase;color:var(--muted);font-weight:600}.cb .bairro{font-weight:600}.cb .mini{font-size:.84rem;color:var(--muted)}
-.modal{position:fixed;inset:0;background:rgba(8,14,20,.62);display:none;align-items:center;justify-content:center;padding:18px;z-index:50}.modal.open{display:flex}
-.sheet{background:#fff;border-radius:14px;max-width:480px;width:100%;overflow:hidden;position:relative;max-height:92vh;overflow-y:auto}
-.cover{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#1b2630}.cover-pl{aspect-ratio:16/7;background:linear-gradient(135deg,#2a3a46,#16222b);color:#fff;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:16px}
-.sb{padding:18px 20px;display:flex;flex-direction:column;gap:11px}.sb .el{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:#b68e45;font-weight:700}.sb h3{margin:0;font-size:1.18rem}.sb .preco{font-weight:700;font-size:1.5rem;color:var(--navy)}.sb .specs{display:flex;gap:16px;flex-wrap:wrap;font-size:.92rem;color:#2a3843}.sb .specs span{color:var(--muted)}
-.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:6px;padding:13px;font:inherit;font-weight:700;cursor:pointer}.wa{background:var(--wa);color:#07351b}.full{background:var(--navy);color:#fff}.visit{background:#fff;color:var(--navy);border:1px solid var(--navy)}
-.sx{position:absolute;top:12px;right:16px;background:rgba(10,20,32,.5);color:#fff;border:0;width:32px;height:32px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2}
-.cor{font-size:.72rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:10px}.cor a{color:#2f6f8f}
-.gal{position:relative;background:#1b2630}.ga{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,20,32,.55);color:#fff;border:0;width:36px;height:36px;border-radius:50%;font-size:1.4rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}.ga.gp{left:10px}.ga.gn{right:10px}.gc{position:absolute;bottom:10px;right:12px;background:rgba(10,20,32,.6);color:#fff;font-size:.72rem;padding:2px 9px;border-radius:999px}
-.desc{font-size:.86rem;color:#2a3843;line-height:1.5;max-height:150px;overflow:auto;border-top:1px solid var(--line);padding-top:10px}
-.waf{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 18px rgba(8,30,31,.3);z-index:40}
 footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:.76rem;padding:18px 0 34px}
+.waf{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 18px rgba(8,30,31,.3);z-index:40}
+/* ===== ficha (overlay no padrão Arbo) ===== */
+.ov{position:fixed;inset:0;background:var(--soft);z-index:55;overflow-y:auto;display:none}.ov.open{display:block}
+.ovhd{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px;display:flex;align-items:center;gap:12px;z-index:3}
+.ovhd .logo{font-weight:700;font-size:1rem}.ovhd .logo small{display:block;font-size:.55rem;letter-spacing:.2em;color:var(--muted);font-weight:500}
+.ovback{margin-left:auto;background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer;font-size:.86rem}
+.mosaic{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:7px;height:300px;margin-top:16px;border-radius:10px;overflow:hidden;position:relative}
+@media(min-width:760px){.mosaic{height:430px}}
+.mosaic .m{background:#1b2630 center/cover no-repeat;cursor:pointer;position:relative}
+.mosaic .big{grid-row:1/3}
+.mosaic .more{display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.mosaic .more::before{content:"";position:absolute;inset:0;background:rgba(10,20,32,.5)}
+.mosaic .more span{position:relative;z-index:1}
+.mcount{position:absolute;left:12px;bottom:12px;background:rgba(10,20,32,.72);color:#fff;font-size:.78rem;padding:5px 11px;border-radius:7px;z-index:2}
+@media(max-width:600px){.mosaic{grid-template-columns:1fr 1fr;height:250px}.mosaic .big{grid-column:1/3;grid-row:auto}.mosaic .m:nth-child(n+4){display:none}}
+.avi2{font-size:.78rem;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:7px;padding:9px 12px;margin-top:10px}
+.fcols{display:grid;gap:30px;grid-template-columns:1fr;margin-top:18px;padding-bottom:60px}@media(min-width:860px){.fcols{grid-template-columns:1fr 330px;align-items:start}}
+.ov h1{font-size:1.35rem;font-weight:700;margin:14px 0 6px;line-height:1.3}@media(min-width:760px){.ov h1{font-size:1.55rem}}
+.floc{color:var(--muted);font-size:.9rem;margin:0}
+.fspecs{display:flex;flex-wrap:wrap;gap:24px;margin:22px 0;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fspec{display:flex;align-items:center;gap:9px;font-size:.98rem;font-weight:600}.fspec svg{color:var(--navy);flex:0 0 auto}.fspec small{color:var(--muted);font-weight:500}
+.ov h2{font-size:1.12rem;font-weight:600;margin:24px 0 10px}.fdesc{color:#2a3843;white-space:pre-line}
+.box{position:sticky;top:76px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;box-shadow:0 6px 22px rgba(10,20,32,.06)}
+.box .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}.box .lbl{font-weight:600}.box .val{font-weight:700;font-size:1.3rem;color:var(--navy)}.box .cond{color:var(--muted);font-size:.9rem}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;border:0;border-radius:6px;padding:13px;font:inherit;font-weight:700;cursor:pointer;margin-top:12px}
+.btn-main{background:var(--wa);color:#07351b}.btn-out{background:#fff;color:var(--navy);border:1px solid var(--navy)}.btn-visit{background:var(--navy);color:#fff}
+.disp{display:flex;gap:7px;color:var(--muted);font-size:.8rem;margin-top:14px;line-height:1.5}
+.lb{position:fixed;inset:0;background:rgba(8,14,20,.93);display:none;align-items:center;justify-content:center;z-index:70;padding:20px}.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:84vh;border-radius:8px}
+.lb .x{position:absolute;top:16px;right:20px;color:#fff;font-size:1.9rem;cursor:pointer;background:none;border:0}
+.lb .ar{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer}.lb .prev{left:18px}.lb .next{right:18px}
+.lb .c{position:absolute;bottom:20px;left:0;right:0;text-align:center;color:#fff;font-size:.82rem}
 </style></head><body>
 <div class="hd">TUESTA & GALVÃO<small>CORRETORES ASSOCIADOS</small></div>
 <div class="intro"><div class="wrap"><h1>Imóveis à venda em Curitiba</h1><p>Nosso estoque e o das redes parceiras num só lugar — e cuidamos de tudo pra você.</p>
@@ -43,46 +65,85 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-
 <div class="wrap"><div class="count" id="count">Carregando…</div><div class="grid" id="grid"></div></div>
 <footer><div class="wrap">Imóveis do estoque Tuesta & Galvão (Rede Urbana) e de redes parceiras (Nexus), exibidos com autorização. Valores e disponibilidade sujeitos a confirmação. WhatsApp (41) 99787-5727.</div></footer>
 <a class="waf" href="https://wa.me/5541997875727" target="_blank" rel="noopener">💬</a>
-<div class="modal" id="modal"><div class="sheet"><button class="sx" id="mx">&times;</button><div id="mcover"></div><div class="sb">
-<span class="el">Tuesta & Galvão · imóvel disponível</span><h3 id="mt"></h3><div class="preco" id="mp"></div><div class="specs" id="ms"></div>
-<div class="desc" id="mdesc" style="display:none"></div>
-<a class="btn full" id="mfull" target="_blank" rel="noopener" style="display:none">Ver todas as fotos e detalhes</a>
-<a class="btn wa" id="mwa" target="_blank" rel="noopener">💬 Tenho interesse — falar com a Tuesta</a>
-<a class="btn visit" id="mv" target="_blank" rel="noopener">Agendar visita</a>
-<div class="cor" id="mc"></div></div></div></div>
+
+<div class="ov" id="ficha">
+ <div class="ovhd"><span class="logo">TUESTA & GALVÃO<small>CORRETORES ASSOCIADOS</small></span><button class="ovback" id="fback">← Voltar aos imóveis</button></div>
+ <div class="wrap">
+  <div class="mosaic" id="fmosaic"></div>
+  <div class="avi2" id="favi"></div>
+  <div class="fcols">
+   <div>
+    <h1 id="ft"></h1>
+    <p class="floc" id="floc"></p>
+    <div class="fspecs" id="fspecs"></div>
+    <div id="fdescwrap" style="display:none"><h2>Descrição</h2><p class="fdesc" id="fdesc"></p></div>
+   </div>
+   <aside>
+    <div class="box">
+     <div class="row"><span class="lbl">Venda</span><span class="val" id="fpreco"></span></div>
+     <a class="btn btn-main" id="fcontato" target="_blank" rel="noopener">💬 Falar com a Tuesta</a>
+     <a class="btn btn-visit" id="fvisitar" target="_blank" rel="noopener">Agendar visita</a>
+     <div class="disp" id="fdisp"></div>
+    </div>
+   </aside>
+  </div>
+ </div>
+</div>
+<div class="lb" id="lb"><button class="x" id="lbx">&times;</button><button class="ar prev" id="lbp">&#8249;</button><img id="lbimg" src="" alt="Foto do imóvel"><button class="ar next" id="lbn">&#8250;</button><div class="c" id="lbc"></div></div>
+
 <script>
-var WA="5541997875727";var API="https://tg-estoque.andregalvao76.workers.dev/api/imoveis";var DATA=[];
+var WA="5541997875727";var API="https://tg-estoque.andregalvao76.workers.dev";var DATA=[];
 function cap(s){return (s||"").charAt(0).toUpperCase()+(s||"").slice(1);}
 function inum(x){x=parseInt(x);return isNaN(x)?null:x;}
 function v(id){return document.getElementById(id).value;}
-fetch(API).then(function(r){return r.json();}).then(function(d){DATA=d.map(function(x){return {
- fonte:x.fonte,src:x.fonte==="Nexus"?"nx":"ru",tipo:x.tipo,bairro:x.bairro,ref:x.ref,precoTxt:x.preco_txt||("R$ "+(x.preco||0).toLocaleString("pt-BR")),preco:x.preco||0,
- q:x.quartos,ar:x.area,img:x.img,fotos:(function(){try{return x.fotos?JSON.parse(x.fotos):[];}catch(e){return [];}})(),descricao:x.descricao||null,ficha:x.ficha_propria,origem:x.ficha_origem,propria:!!x.propria};});
- fill("f-tipo",DATA.map(function(d){return d.tipo;}));fill("f-bairro",DATA.map(function(d){return d.bairro;}));render();}).catch(function(){document.getElementById("count").textContent="Não foi possível carregar os imóveis agora.";});
-function fill(id,vals){var s=document.getElementById(id);Array.from(new Set(vals)).filter(Boolean).sort().forEach(function(v){var o=document.createElement("option");o.textContent=v;s.appendChild(o);});}
-["f-fonte","f-tipo","f-bairro","f-q","f-pmax","f-ord"].forEach(function(id){document.getElementById(id).addEventListener("input",render);});
+function g(id){return document.getElementById(id);}
+fetch(API+"/api/imoveis").then(function(r){return r.json();}).then(function(d){DATA=d.map(function(x){return {
+ fonte:x.fonte,src:x.fonte==="Nexus"?"nx":"ru",tipo:x.tipo,bairro:x.bairro,cidade:x.cidade||"Curitiba",ref:x.ref,precoTxt:x.preco_txt||("R$ "+(x.preco||0).toLocaleString("pt-BR")),preco:x.preco||0,
+ q:x.quartos,vg:x.vagas,ar:x.area,img:x.img,fotos:(function(){try{return x.fotos?JSON.parse(x.fotos):[];}catch(e){return [];}})(),descricao:x.descricao||null,propria:!!x.propria};});
+ fill("f-tipo",DATA.map(function(d){return d.tipo;}));fill("f-bairro",DATA.map(function(d){return d.bairro;}));render();}).catch(function(){g("count").textContent="Não foi possível carregar os imóveis agora.";});
+function fill(id,vals){var s=g(id);Array.from(new Set(vals)).filter(Boolean).sort().forEach(function(v){var o=document.createElement("option");o.textContent=v;s.appendChild(o);});}
+["f-fonte","f-tipo","f-bairro","f-q","f-pmax","f-ord"].forEach(function(id){g(id).addEventListener("input",render);});
 function render(){var fonte=v("f-fonte"),tipo=v("f-tipo"),bairro=v("f-bairro"),q=inum(v("f-q")),pmax=inum(v("f-pmax")),ord=v("f-ord");
  var r=DATA.filter(function(d){if(fonte&&d.fonte!==fonte)return false;if(tipo&&d.tipo!==tipo)return false;if(bairro&&d.bairro!==bairro)return false;if(q!=null&&(d.q==null||d.q<q))return false;if(pmax!=null&&d.preco>pmax)return false;return true;});
  r.sort(function(a,b){return ord==="pd"?b.preco-a.preco:a.preco-b.preco;});window.CUR=r;
- document.getElementById("count").innerHTML="<b>"+r.length+"</b> imóveis";
- document.getElementById("grid").innerHTML=r.map(function(d,i){var ph=d.img?'<div class="ph" style="background-image:url(\''+d.img+'\')"><span class="src '+d.src+'">'+d.fonte+'</span></div>':'<div class="ph pl"><span class="src '+d.src+'">'+d.fonte+'</span><b>Tuesta & Galvão</b><small>fotos sob consulta</small></div>';
- var mini=[];if(d.q!=null)mini.push(d.q+" quartos");if(d.ar!=null)mini.push(d.ar+" m²");
- return '<div class="card" data-i="'+i+'">'+ph+'<div class="cb"><span class="tipo">'+cap(d.tipo)+'</span><span class="preco">'+d.precoTxt+'</span><span class="bairro">'+d.bairro+'</span><span class="mini">'+mini.join(" · ")+'</span></div></div>';}).join("");}
+ g("count").innerHTML="<b>"+r.length+"</b> imóveis";
+ g("grid").innerHTML=r.map(function(d,i){var ph=d.img?'<div class="ph" style="background-image:url(\''+d.img+'\')"><span class="src '+d.src+'">'+d.fonte+'</span></div>':'<div class="ph pl"><span class="src '+d.src+'">'+d.fonte+'</span><b>Tuesta & Galvão</b><small>fotos sob consulta</small></div>';
+  var mini=[];if(d.q!=null)mini.push(d.q+" quartos");if(d.ar!=null)mini.push(d.ar+" m²");
+  return '<div class="card" data-i="'+i+'">'+ph+'<div class="cb"><span class="tipo">'+cap(d.tipo)+'</span><span class="preco">'+d.precoTxt+'</span><span class="bairro">'+d.bairro+'</span><span class="mini">'+mini.join(" · ")+'</span></div></div>';}).join("");}
 function waLink(d,ex){return "https://wa.me/"+WA+"?text="+encodeURIComponent("Olá! Tenho interesse no imóvel: "+cap(d.tipo)+" em "+d.bairro+" — "+d.precoTxt+" (ref "+d.ref+"), que vi no site da Tuesta & Galvão. "+ex);}
-function openM(d){var cv=document.getElementById("mcover");var fotos=(d.fotos&&d.fotos.length)?d.fotos:(d.img?[d.img]:[]);var gi=0;
- function draw(){if(!fotos.length){cv.innerHTML='<div class="cover-pl"><b>Tuesta & Galvão</b><span style="font-size:.8rem">Fotos deste imóvel sob consulta — fale com a gente</span></div>';return;}
-  cv.innerHTML='<div class="gal"><img class="cover" src="'+fotos[gi]+'">'+(fotos.length>1?'<button class="ga gp">‹</button><button class="ga gn">›</button><span class="gc">'+(gi+1)+'/'+fotos.length+'</span>':'')+'</div>';
-  if(fotos.length>1){cv.querySelector(".gp").onclick=function(e){e.stopPropagation();gi=(gi-1+fotos.length)%fotos.length;draw();};cv.querySelector(".gn").onclick=function(e){e.stopPropagation();gi=(gi+1)%fotos.length;draw();};}}
- draw();
- document.getElementById("mt").textContent=cap(d.tipo)+" em "+d.bairro;document.getElementById("mp").textContent=d.precoTxt;
- var sp=[];if(d.q!=null)sp.push(d.q+" <span>quartos</span>");if(d.ar!=null)sp.push(d.ar+" <span>m²</span>");document.getElementById("ms").innerHTML=sp.join("");
- var dd=document.getElementById("mdesc");if(d.descricao){dd.style.display="block";dd.textContent=d.descricao;}else dd.style.display="none";
- var f=document.getElementById("mfull");if(!d.propria&&d.origem){f.style.display="flex";f.href=d.origem;f.textContent="Ver ficha completa e todas as fotos ↗";}else f.style.display="none";
- document.getElementById("mwa").href=waLink(d,"Pode me passar mais informações?");document.getElementById("mv").href=waLink(d,"Gostaria de agendar uma visita.");
- document.getElementById("mc").innerHTML=d.propria?"🏠 Imóvel do estoque da rede Rede Urbana. Negociação conduzida pela Tuesta & Galvão.":'🔒 <b>Uso interno do corretor</b> — ref '+d.ref+' · fonte: rede parceira (Nexus). A ficha de origem pode exibir o contato de outra imobiliária; a negociação é sempre conduzida pela Tuesta & Galvão.';
- document.getElementById("modal").classList.add("open");}
-document.getElementById("grid").addEventListener("click",function(e){var c=e.target.closest(".card");if(c)openM(window.CUR[+c.getAttribute("data-i")]);});
-document.getElementById("mx").addEventListener("click",function(){document.getElementById("modal").classList.remove("open");});
-document.getElementById("modal").addEventListener("click",function(e){if(e.target.id==="modal")this.classList.remove("open");});
-document.addEventListener("keydown",function(e){if(e.key==="Escape")document.getElementById("modal").classList.remove("open");});
+var SVG={quartos:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M3 12h18v5"/><path d="M6 12V9h5v3"/><path d="M4 17v2M20 17v2"/></svg>',
+ area:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16L16 3l5 5L8 21z"/><path d="M8 8l2 2M12 4l2 2M5 11l2 2"/></svg>',
+ vaga:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 13l1.5-4.5A2 2 0 0 1 8.4 7h7.2a2 2 0 0 1 1.9 1.5L19 13v5h-2v-2H7v2H5z"/><circle cx="7.5" cy="15.5" r="1"/><circle cx="16.5" cy="15.5" r="1"/></svg>'};
+var FOTOS=[];
+function drawMosaic(){var mo=g("fmosaic");if(!FOTOS.length){mo.style.display="none";return;}mo.style.display="grid";
+ var cells=FOTOS.slice(0,5),h="";for(var i=0;i<cells.length;i++){var cls="m"+(i===0?" big":"");var more=(i===4&&FOTOS.length>5);h+='<div class="'+cls+(more?' more':'')+'" data-i="'+i+'" style="background-image:url(\''+cells[i]+'\')">'+(more?'<span>+'+(FOTOS.length-5)+' fotos</span>':'')+'</div>';}
+ h+='<div class="mcount">📷 '+FOTOS.length+'</div>';mo.innerHTML=h;}
+function openFicha(d){FOTOS=(d.fotos&&d.fotos.length)?d.fotos.slice():(d.img?[d.img]:[]);drawMosaic();
+ g("ft").textContent=cap(d.tipo)+(d.q!=null?" com "+d.q+" quarto"+(d.q>1?"s":""):"")+" à venda em "+d.bairro+", "+(d.cidade||"Curitiba");
+ g("floc").textContent=d.bairro+" · "+(d.cidade||"Curitiba")+"/PR";
+ var sp="";if(d.q!=null)sp+='<div class="fspec">'+SVG.quartos+' '+d.q+' <small>quartos</small></div>';if(d.ar!=null)sp+='<div class="fspec">'+SVG.area+' '+d.ar+' <small>m²</small></div>';if(d.vg!=null)sp+='<div class="fspec">'+SVG.vaga+' '+d.vg+' <small>vaga'+(d.vg>1?"s":"")+'</small></div>';g("fspecs").innerHTML=sp;
+ var dw=g("fdescwrap");if(d.descricao){dw.style.display="block";g("fdesc").textContent=d.descricao;}else dw.style.display="none";
+ g("fpreco").textContent=d.precoTxt;
+ g("fcontato").href=waLink(d,"Pode me passar mais informações?");g("fvisitar").href=waLink(d,"Gostaria de agendar uma visita.");
+ g("favi").innerHTML=d.propria?"🏠 Imóvel do nosso estoque (Rede Urbana).":"🤝 Imóvel de rede parceira — algumas fotos podem exibir a marca da imobiliária de origem. A negociação é sempre conduzida pela Tuesta & Galvão.";
+ g("fdisp").innerHTML="🔒 Negociação e visita conduzidas pela Tuesta & Galvão.";
+ g("ficha").classList.add("open");g("ficha").scrollTop=0;document.body.style.overflow="hidden";
+ if(!d.propria){ // Nexus: busca a galeria completa sob demanda
+  fetch(API+"/ficha?fonte="+encodeURIComponent(d.fonte)+"&ref="+encodeURIComponent(d.ref)).then(function(r){return r.json();}).then(function(f){
+   if(f&&f.fotos&&f.fotos.length>FOTOS.length){FOTOS=f.fotos;drawMosaic();}
+   if(f&&f.descricao&&!d.descricao){g("fdescwrap").style.display="block";g("fdesc").textContent=f.descricao;}
+  }).catch(function(){});
+ }}
+function closeFicha(){g("ficha").classList.remove("open");document.body.style.overflow="";}
+g("grid").addEventListener("click",function(e){var c=e.target.closest(".card");if(c)openFicha(window.CUR[+c.getAttribute("data-i")]);});
+g("fback").addEventListener("click",closeFicha);
+// lightbox
+var cur=0;function lbShow(i){cur=(i+FOTOS.length)%FOTOS.length;g("lbimg").src=FOTOS[cur];g("lbc").textContent=(cur+1)+" / "+FOTOS.length;}
+function lbOpen(i){if(!FOTOS.length)return;lbShow(i);g("lb").classList.add("open");}
+g("fmosaic").addEventListener("click",function(e){var m=e.target.closest(".m");if(m)lbOpen(+m.getAttribute("data-i"));});
+g("lbx").addEventListener("click",function(){g("lb").classList.remove("open");});
+g("lbp").addEventListener("click",function(e){e.stopPropagation();lbShow(cur-1);});
+g("lbn").addEventListener("click",function(e){e.stopPropagation();lbShow(cur+1);});
+g("lb").addEventListener("click",function(e){if(e.target===g("lb"))g("lb").classList.remove("open");});
+document.addEventListener("keydown",function(e){if(g("lb").classList.contains("open")){if(e.key==="Escape")g("lb").classList.remove("open");else if(e.key==="ArrowLeft")lbShow(cur-1);else if(e.key==="ArrowRight")lbShow(cur+1);}else if(e.key==="Escape"&&g("ficha").classList.contains("open"))closeFicha();});
 </script></body></html>
