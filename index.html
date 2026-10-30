@@ -82,6 +82,7 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-
   </div>
  </div></div>
 <div class="fld"><label>Quartos (mín)</label><select id="f-q"><option value="">Qualquer</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
+<div class="fld"><label>Preço mín</label><input id="f-pmin" type="number" placeholder="R$ 0" step="50000"></div>
 <div class="fld"><label>Preço máx</label><input id="f-pmax" type="number" placeholder="sem limite" step="50000"></div>
 <div class="fld"><label>Ordenar</label><select id="f-ord"><option value="pa">Preço ↑</option><option value="pd">Preço ↓</option></select></div>
 </div></div></div>
@@ -146,7 +147,7 @@ function bootFicha(sel){var p=sel.split("__"),fonte=p[0],ref=p.slice(1).join("__
   var d=mapRow(f);openFicha(d,true);document.title=cap(d.tipo)+" em "+bdisp(d)+" — Tuesta & Galvão";
  }).catch(function(){document.body.innerHTML='<div style="max-width:560px;margin:60px auto;padding:0 20px;font-family:Sora,sans-serif;text-align:center"><h2>Não foi possível carregar o imóvel</h2><a href="./" style="color:#22323f;font-weight:700">← Ver todos os imóveis</a></div>';});}
 function fill(id,vals){var s=g(id);Array.from(new Set(vals)).filter(Boolean).sort().forEach(function(v){var o=document.createElement("option");o.textContent=v;s.appendChild(o);});}
-["f-fonte","f-tipo","f-q","f-pmax","f-ord"].forEach(function(id){g(id).addEventListener("input",render);});
+["f-fonte","f-tipo","f-q","f-pmin","f-pmax","f-ord"].forEach(function(id){g(id).addEventListener("input",render);});
 // ----- seletor múltiplo de bairro -----
 window.BSEL=new Set();
 function buildBairros(){var list=g("ms-list"),q=bkey(g("ms-search").value||"");var items=(window.BLIST||[]).filter(function(it){return !q||it.key.indexOf(q)>-1;});
@@ -165,8 +166,8 @@ function cardHTML(d,i){var ph=d.img?'<div class="ph" style="background-image:url
  var href="?i="+encodeURIComponent(d.fonte+"__"+d.ref);
  return '<a class="card" href="'+href+'" target="_blank" rel="noopener">'+ph+'<div class="cb"><span class="tipo">'+cap(d.tipo)+'</span><span class="preco">'+d.precoTxt+'</span><span class="bairro">'+bdisp(d)+'</span><span class="mini">'+mini.join(" · ")+'</span></div></a>';}
 function renderMore(){if(!window.CUR)return;var start=window.SHOWN||0,slice=window.CUR.slice(start,start+PAGE);if(!slice.length)return;var h="";for(var j=0;j<slice.length;j++)h+=cardHTML(slice[j],start+j);g("grid").insertAdjacentHTML("beforeend",h);window.SHOWN=start+slice.length;}
-function render(){var fonte=v("f-fonte"),tipo=v("f-tipo"),q=inum(v("f-q")),pmax=inum(v("f-pmax")),ord=v("f-ord"),bs=window.BSEL;
- var r=DATA.filter(function(d){if(fonte&&d.fonte!==fonte)return false;if(tipo&&d.tipo!==tipo)return false;if(bs&&bs.size&&!bs.has(d.bkey))return false;if(q!=null&&(d.q==null||d.q<q))return false;if(pmax!=null&&d.preco>pmax)return false;return true;});
+function render(){var fonte=v("f-fonte"),tipo=v("f-tipo"),q=inum(v("f-q")),pmin=inum(v("f-pmin")),pmax=inum(v("f-pmax")),ord=v("f-ord"),bs=window.BSEL;
+ var r=DATA.filter(function(d){if(fonte&&d.fonte!==fonte)return false;if(tipo&&d.tipo!==tipo)return false;if(bs&&bs.size&&!bs.has(d.bkey))return false;if(q!=null&&(d.q==null||d.q<q))return false;if(pmin!=null&&d.preco<pmin)return false;if(pmax!=null&&d.preco>pmax)return false;return true;});
  r.sort(function(a,b){return ord==="pd"?b.preco-a.preco:a.preco-b.preco;});window.CUR=r;window.SHOWN=0;
  g("count").innerHTML="<b>"+r.length+"</b> imóveis";
  g("grid").innerHTML="";renderMore();}
