@@ -1,7 +1,7 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Imóveis à venda — Tuesta & Galvão</title>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#22323f;--ink:#0a1420;--line:#e6e8ec;--muted:#6b7580;--soft:#f5f6f8;--wa:#25d366;--ru:#1f6f4a;--nx:#6a4a8f;--un:#c8761f}
+:root{--navy:#22323f;--ink:#0a1420;--line:#e6e8ec;--muted:#6b7580;--soft:#f5f6f8;--wa:#25d366;--ru:#1f6f4a;--nx:#6a4a8f;--un:#c8761f;--ap:#0a5fb4}
 *{box-sizing:border-box}body{margin:0;font-family:"Sora",system-ui,Arial,sans-serif;color:var(--ink);background:var(--soft);line-height:1.5}
 a{color:inherit;text-decoration:none}.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
 .hd{background:#fff;border-bottom:1px solid var(--line);padding:14px 20px;font-weight:700}.hd small{display:block;font-size:.6rem;letter-spacing:.22em;color:var(--muted);font-weight:500;margin-top:3px}
@@ -15,7 +15,7 @@ select,input{padding:8px 10px;border:1px solid var(--line);border-radius:7px;fon
 .grid{display:grid;gap:16px;grid-template-columns:1fr;padding-bottom:50px}@media(min-width:620px){.grid{grid-template-columns:1fr 1fr}}@media(min-width:960px){.grid{grid-template-columns:1fr 1fr 1fr}}
 .card{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column}.card:hover{box-shadow:0 8px 24px rgba(10,20,32,.1)}
 .ph{position:relative;aspect-ratio:4/3;background:#e9edf0 center/cover no-repeat}.ph.pl{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:3px;background:linear-gradient(135deg,#2a3a46,#16222b);color:#cdd7dd;text-align:center;padding:12px}.ph.pl b{color:#fff}
-.src{position:absolute;top:10px;right:10px;color:#fff;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;text-transform:uppercase}.src.ru{background:var(--ru)}.src.nx{background:var(--nx)}.src.un{background:var(--un)}
+.src{position:absolute;top:10px;right:10px;color:#fff;font-size:.68rem;font-weight:700;padding:3px 9px;border-radius:999px;text-transform:uppercase}.src.ru{background:var(--ru)}.src.nx{background:var(--nx)}.src.un{background:var(--un)}.src.ap{background:var(--ap)}
 .cb{padding:13px 14px;display:flex;flex-direction:column;gap:4px}.cb .preco{font-weight:700;font-size:1.2rem;color:var(--navy)}.cb .tipo{font-size:.72rem;text-transform:uppercase;color:var(--muted);font-weight:600}.cb .bairro{font-weight:600}.cb .mini{font-size:.84rem;color:var(--muted)}
 footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-size:.76rem;padding:18px 0 34px}
 .waf{position:fixed;right:20px;bottom:20px;width:54px;height:54px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 6px 18px rgba(8,30,31,.3);z-index:40}
@@ -55,7 +55,7 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-
 <div class="intro"><div class="wrap"><h1>Imóveis à venda em Curitiba</h1><p>Nosso estoque e o das redes parceiras num só lugar — e cuidamos de tudo pra você.</p>
 <div class="aviso">ℹ️ Trabalhamos com imóveis das <b>nossas bases e de redes parceiras</b>. Em alguns anúncios você pode encontrar a marca de outra imobiliária nas fotos — a negociação é sempre conduzida pela Tuesta & Galvão.</div></div></div>
 <div class="filters"><div class="wrap"><div class="frow">
-<div class="fld"><label>Fonte</label><select id="f-fonte"><option value="">Todas</option><option>Rede Urbana</option><option>Nexus</option><option>Una</option></select></div>
+<div class="fld"><label>Fonte</label><select id="f-fonte"><option value="">Todas</option><option>Rede Urbana</option><option>Nexus</option><option>Una</option><option>Apolar</option></select></div>
 <div class="fld"><label>Tipo</label><select id="f-tipo"><option value="">Todos</option></select></div>
 <div class="fld"><label>Bairro</label><select id="f-bairro"><option value="">Todos</option></select></div>
 <div class="fld"><label>Quartos (mín)</label><select id="f-q"><option value="">Qualquer</option><option>1</option><option>2</option><option>3</option><option>4</option></select></div>
@@ -63,7 +63,7 @@ footer{background:#fff;border-top:1px solid var(--line);color:var(--muted);font-
 <div class="fld"><label>Ordenar</label><select id="f-ord"><option value="pa">Preço ↑</option><option value="pd">Preço ↓</option></select></div>
 </div></div></div>
 <div class="wrap"><div class="count" id="count">Carregando…</div><div class="grid" id="grid"></div></div>
-<footer><div class="wrap">Imóveis do estoque Tuesta & Galvão (Rede Urbana) e de redes parceiras (Nexus), exibidos com autorização. Valores e disponibilidade sujeitos a confirmação. WhatsApp (41) 99787-5727.</div></footer>
+<footer><div class="wrap">Imóveis do estoque Tuesta & Galvão (Rede Urbana) e de redes parceiras (Nexus, Una, Apolar), exibidos com autorização. Valores e disponibilidade sujeitos a confirmação. WhatsApp (41) 99787-5727.</div></footer>
 <a class="waf" href="https://wa.me/5541997875727" target="_blank" rel="noopener">💬</a>
 
 <div class="ov" id="ficha">
@@ -98,18 +98,22 @@ function inum(x){x=parseInt(x);return isNaN(x)?null:x;}
 function v(id){return document.getElementById(id).value;}
 function g(id){return document.getElementById(id);}
 fetch(API+"/api/imoveis").then(function(r){return r.json();}).then(function(d){DATA=d.map(function(x){return {
- fonte:x.fonte,src:x.fonte==="Nexus"?"nx":(x.fonte==="Una"?"un":"ru"),tipo:x.tipo,bairro:x.bairro,cidade:x.cidade||"Curitiba",ref:x.ref,precoTxt:(x.preco?(x.preco_txt||("R$ "+x.preco.toLocaleString("pt-BR"))):"Sob consulta"),preco:x.preco||0,
+ fonte:x.fonte,src:x.fonte==="Nexus"?"nx":(x.fonte==="Una"?"un":(x.fonte==="Apolar"?"ap":"ru")),tipo:x.tipo,bairro:x.bairro,cidade:x.cidade||"Curitiba",ref:x.ref,precoTxt:(x.preco?(x.preco_txt||("R$ "+x.preco.toLocaleString("pt-BR"))):"Sob consulta"),preco:x.preco||0,
  q:x.quartos,vg:x.vagas,ar:x.area,img:x.img,fotos:(function(){try{return x.fotos?JSON.parse(x.fotos):[];}catch(e){return [];}})(),descricao:x.descricao||null,propria:!!x.propria};});
  fill("f-tipo",DATA.map(function(d){return d.tipo;}));fill("f-bairro",DATA.map(function(d){return d.bairro;}));render();}).catch(function(){g("count").textContent="Não foi possível carregar os imóveis agora.";});
 function fill(id,vals){var s=g(id);Array.from(new Set(vals)).filter(Boolean).sort().forEach(function(v){var o=document.createElement("option");o.textContent=v;s.appendChild(o);});}
 ["f-fonte","f-tipo","f-bairro","f-q","f-pmax","f-ord"].forEach(function(id){g(id).addEventListener("input",render);});
+var PAGE=48;
+function cardHTML(d,i){var ph=d.img?'<div class="ph" style="background-image:url(\''+d.img+'\')"><span class="src '+d.src+'">'+d.fonte+'</span></div>':'<div class="ph pl"><span class="src '+d.src+'">'+d.fonte+'</span><b>Tuesta & Galvão</b><small>fotos sob consulta</small></div>';
+ var mini=[];if(d.q!=null)mini.push(d.q+" quartos");if(d.ar!=null)mini.push(d.ar+" m²");
+ return '<div class="card" data-i="'+i+'">'+ph+'<div class="cb"><span class="tipo">'+cap(d.tipo)+'</span><span class="preco">'+d.precoTxt+'</span><span class="bairro">'+d.bairro+'</span><span class="mini">'+mini.join(" · ")+'</span></div></div>';}
+function renderMore(){if(!window.CUR)return;var start=window.SHOWN||0,slice=window.CUR.slice(start,start+PAGE);if(!slice.length)return;var h="";for(var j=0;j<slice.length;j++)h+=cardHTML(slice[j],start+j);g("grid").insertAdjacentHTML("beforeend",h);window.SHOWN=start+slice.length;}
 function render(){var fonte=v("f-fonte"),tipo=v("f-tipo"),bairro=v("f-bairro"),q=inum(v("f-q")),pmax=inum(v("f-pmax")),ord=v("f-ord");
  var r=DATA.filter(function(d){if(fonte&&d.fonte!==fonte)return false;if(tipo&&d.tipo!==tipo)return false;if(bairro&&d.bairro!==bairro)return false;if(q!=null&&(d.q==null||d.q<q))return false;if(pmax!=null&&d.preco>pmax)return false;return true;});
- r.sort(function(a,b){return ord==="pd"?b.preco-a.preco:a.preco-b.preco;});window.CUR=r;
+ r.sort(function(a,b){return ord==="pd"?b.preco-a.preco:a.preco-b.preco;});window.CUR=r;window.SHOWN=0;
  g("count").innerHTML="<b>"+r.length+"</b> imóveis";
- g("grid").innerHTML=r.map(function(d,i){var ph=d.img?'<div class="ph" style="background-image:url(\''+d.img+'\')"><span class="src '+d.src+'">'+d.fonte+'</span></div>':'<div class="ph pl"><span class="src '+d.src+'">'+d.fonte+'</span><b>Tuesta & Galvão</b><small>fotos sob consulta</small></div>';
-  var mini=[];if(d.q!=null)mini.push(d.q+" quartos");if(d.ar!=null)mini.push(d.ar+" m²");
-  return '<div class="card" data-i="'+i+'">'+ph+'<div class="cb"><span class="tipo">'+cap(d.tipo)+'</span><span class="preco">'+d.precoTxt+'</span><span class="bairro">'+d.bairro+'</span><span class="mini">'+mini.join(" · ")+'</span></div></div>';}).join("");}
+ g("grid").innerHTML="";renderMore();}
+window.addEventListener("scroll",function(){if(window.CUR&&(window.SHOWN||0)<window.CUR.length&&(window.innerHeight+window.scrollY)>=document.body.offsetHeight-900)renderMore();});
 function waLink(d,ex){return "https://wa.me/"+WA+"?text="+encodeURIComponent("Olá! Tenho interesse no imóvel: "+cap(d.tipo)+" em "+d.bairro+" — "+d.precoTxt+" (ref "+d.ref+"), que vi no site da Tuesta & Galvão. "+ex);}
 var SVG={quartos:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v5"/><path d="M3 12h18v5"/><path d="M6 12V9h5v3"/><path d="M4 17v2M20 17v2"/></svg>',
  area:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 16L16 3l5 5L8 21z"/><path d="M8 8l2 2M12 4l2 2M5 11l2 2"/></svg>',
